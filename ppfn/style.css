@@ -11,11 +11,8 @@ body{
     display: flex;
     justify-content: center;
 }
-#flexdiv{
-height: 100%;
-display: flex;
-justify-content: center;
-flex-direction:column;
+#sigmadiv{
+padding-top: 50px;
 }
 button{
     border-radius: 15px;
@@ -29,8 +26,17 @@ button{
 #openmisc{
     background-color: #23a0ff;
     color:white;
+    
+}
+#openmisc:hover{
+    background-color: #116bb1;
+    color:white;
 }
 #openmain{
     background-color: #00ce59;
+    color:white;
+}
+#openmain:hover{
+    background-color: #22ae5f;
     color:white;
 }
