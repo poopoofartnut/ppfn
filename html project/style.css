@@ -7,15 +7,30 @@ body{
     font-size: 40pt;
 
 }
+#buttons{
+    display: flex;
+    justify-content: center;
+}
+#flexdiv{
+height: 100%;
+display: flex;
+justify-content: center;
+flex-direction:column;
+}
 button{
     border-radius: 15px;
-    width: 80%;
+    width: 100%;
     max-width: 200px;
     height: 50px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 13pt;
 }
 #openmisc{
-
+    background-color: #23a0ff;
+    color:white;
 }
 #openmain{
-    
+    background-color: #00ce59;
+    color:white;
 }
