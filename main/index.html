@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="script.js"></script>
     <title>skibidi sigma</title>
 </head>
@@ -33,10 +34,14 @@
             root.style.setProperty("--back", "rgb(230, 230, 230)");
             root.style.setProperty("--font", "black");
             root.style.setProperty("--tile", "rgb(200, 200, 200)");
+            document.getElementById("res").innerHTML= "<span class='material-symbols-outlined'>dark_mode</span>";
+            root.style.setProperty("--res", "rgb(56, 56, 56)");
         }else if (sigma == "dark"){
             root.style.setProperty("--back", "rgb(56, 56, 56)");
             root.style.setProperty("--font", "white");
             root.style.setProperty("--tile", "rgb(70, 70, 70)");
+            document.getElementById("res").innerHTML= "<span class='material-symbols-outlined'>light_mode</span>";
+            root.style.setProperty("--res", "rgb(230, 230, 230)");
         }else{
             console.log("Invalid theme var input")
         }

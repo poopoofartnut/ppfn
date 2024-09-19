@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>ppfn</title>
 </head>
 <body>
@@ -15,7 +16,9 @@
         <button id="openmisc">other button</button>
     </div>
     </div>
-    <button id="res" onclick="change()">hi</button>
+    <button id="res" onclick="change()"><span class="material-symbols-outlined">
+      dark_mode
+      </span></button>
     <script>
       if (!localStorage.getItem('theme')) {
          localStorage.setItem("theme", "1")
@@ -35,9 +38,13 @@
         if(sigma == "light"){
             root.style.setProperty("--back", "rgb(230, 230, 230)");
             root.style.setProperty("--font", "black");
+            document.getElementById("res").innerHTML= "<span class='material-symbols-outlined'>dark_mode</span>";
+            root.style.setProperty("--res", "rgb(56, 56, 56)");
         }else if (sigma == "dark"){
             root.style.setProperty("--back", "rgb(56, 56, 56)");
             root.style.setProperty("--font", "white");
+            document.getElementById("res").innerHTML= "<span class='material-symbols-outlined'>light_mode</span>";
+            root.style.setProperty("--res", "rgb(230, 230, 230)");
         }else{
             console.log("Invalid theme var input")
         }
