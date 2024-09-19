@@ -42,7 +42,10 @@
             console.log("Invalid theme var input")
         }
       }
-      themeToggle("dark");
+      var localvar;
+      if(localStorage.getItem('theme')=="1"){var localvar = "dark"}else{var localvar = "light"}
+      themeToggle(localvar);
+
 
     </script>
 </body>

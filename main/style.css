@@ -12,7 +12,9 @@ div{
     height:250px;
     border-radius: 20px;
     margin: 10px;
-
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 img{
     width: 200px;
@@ -21,10 +23,18 @@ img{
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
 }
+.sigma{
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 5px;
+    font-size: 15.5pt;
+}
 body{
     background-color: var(--back);
     color: var(--font);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
