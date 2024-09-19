@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>ppfn</title>
+</head>
+<body>
+    <h1 id="title">sigma</h1>
+    <div id="buttons">
+    <div id="sigmadiv">
+        <button id="openmain" href="/main">sigma</button>
+        <button id="openmisc">other button</button>
+    </div>
+    </div>
+    <button id="res" onclick="change()">hi</button>
+    <script>
+      if (!localStorage.getItem('theme')) {
+         localStorage.setItem("theme", "1")
+      }
+
+      function change() {
+        if (localStorage.getItem('theme') == '1') {
+          localStorage.setItem("theme", '0')
+          themeToggle("light");
+        } else {
+          localStorage.setItem("theme", '1')
+          themeToggle("dark");
+        }
+      }
+      function themeToggle(sigma){
+        let root = document.documentElement;
+        if(sigma == "light"){
+            root.style.setProperty("--back", "rgb(230, 230, 230)");
+            root.style.setProperty("--font", "black");
+        }else if (sigma == "dark"){
+            root.style.setProperty("--back", "rgb(56, 56, 56)");
+            root.style.setProperty("--font", "white");
+        }else{
+            console.log("Invalid theme var input")
+        }
+      }
+      themeToggle("dark");
+
+    </script>
+</body>
+</html>

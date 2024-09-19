@@ -1,0 +1,30 @@
+:root{
+    --back: rgb(230, 230, 230);
+    --font: black;
+    --tile: rgb(200, 200, 200);
+}
+div{
+    border-style: none;
+}
+#tile{
+    background-color: var(--tile);
+    width: 200px;
+    height:250px;
+    border-radius: 20px;
+    margin: 10px;
+
+}
+img{
+    width: 200px;
+    height: 200px;
+    border-style: none;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+body{
+    background-color: var(--back);
+    color: var(--font);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

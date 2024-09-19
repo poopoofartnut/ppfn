@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>skibidi sigma</title>
+</head>
+<body>
+    <div id="tile">
+        <img src="/ppfn/main/placeholder.png" alt="placeholder">
+    </div>
+    <button id="res" onclick="change()">hi</button>
+    <script>
+      if (!localStorage.getItem('theme')) {
+         localStorage.setItem("theme", "1")
+      }
+
+      function change() {
+        if (localStorage.getItem('theme') == '1') {
+          localStorage.setItem("theme", '0')
+          themeToggle("light");
+        } else {
+          localStorage.setItem("theme", '1')
+          themeToggle("dark");
+        }
+      }
+      function themeToggle(sigma){
+        let root = document.documentElement;
+        if(sigma == "light"){
+            root.style.setProperty("--back", "rgb(230, 230, 230)");
+            root.style.setProperty("--font", "black");
+            root.style.setProperty("--tile", "rgb(200, 200, 200)");
+        }else if (sigma == "dark"){
+            root.style.setProperty("--back", "rgb(56, 56, 56)");
+            root.style.setProperty("--font", "white");
+            root.style.setProperty("--tile", "rgb(70, 70, 70)");
+        }else{
+            console.log("Invalid theme var input")
+        }
+      }
+      themeToggle("dark");
+
+    </script>
+</body>
+</html>

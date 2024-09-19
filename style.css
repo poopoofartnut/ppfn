@@ -1,6 +1,10 @@
+:root{
+    --back: rgb(230, 230, 230);
+    --font: black;
+}
 body{
-    background-color: rgb(68, 68, 68);
-    color:white;
+    background-color: var(--back);
+    color:var(--font);
 }
 #title{
     text-align: center;
@@ -25,18 +29,18 @@ button{
 }
 #openmisc{
     background-color: #23a0ff;
-    color:white;
+    color:var(--font);
     
 }
 #openmisc:hover{
     background-color: #116bb1;
-    color:white;
+    color:var(--font);
 }
 #openmain{
     background-color: #00ce59;
-    color:white;
+    color:var(--font);
 }
 #openmain:hover{
     background-color: #22ae5f;
-    color:white;
+    color:var(--font);
 }
