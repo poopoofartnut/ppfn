@@ -1,6 +1,3 @@
-function openmain(){
-    window.location.href("/main");
-}
 if (!localStorage.getItem('theme')) {
     localStorage.setItem("theme", "1")
  }
