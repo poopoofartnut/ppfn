@@ -3,6 +3,7 @@
     --font: black;
     --tile: rgb(200, 200, 200);
     --res: white;
+    --themeicon: white;
 }
 div{
     border-style: none;
@@ -49,4 +50,5 @@ body{
     right: 10px;
     background-color: var(--res);
     border: none;
+    color: var(--themeicon);
 }
