@@ -6,12 +6,16 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="script.js"></script>
-    <title>skibidi sigma</title>
+    <title>Games</title>
 </head>
 <body>
-    <div id="tile">
-        <img src="/ppfn/main/placeholder.png" alt="placeholder">
-        <p class="sigma">skibidi game</p>
+    <h1 id="title">Games</h1>
+    <div id="searchdiv"><input onchange="var query = document.getElementById('search').innerHTML; runSearch(query)" type="text" name="search" id="search" placeholder="search"><span id="m" class="material-symbols-outlined">search</span></div>
+    <div id="tilecontainer">
+        <div class="tile" name=""> 
+            <img src="/ppfn/main/placeholder.png" alt="placeholder">
+            <p class="sigma">skibidi game</p>
+        </div>
     </div>
     <button id="res" onclick="change()"></button>
 </body>

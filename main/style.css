@@ -8,7 +8,7 @@
 div{
     border-style: none;
 }
-#tile{
+.tile{
     background-color: var(--tile);
     width: 200px;
     height:250px;
@@ -17,7 +17,14 @@ div{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    scale: 1;
+    transition: transform 0.2s;
 }
+.tile:hover{
+    transform: scale(1.02);
+    
+}
+
 img{
     width: 200px;
     height: 200px;
@@ -45,11 +52,58 @@ body{
     border-radius: 100%;
     width: 50px;
     height: 50px;
-    box-shadow: 0px 0px 10px;
+    box-shadow: 0px 0px 10px var(--font);
     position: fixed;
     top: 10px;
     right: 10px;
     background-color: var(--res);
     border: none;
     color: var(--themeicon);
+}
+#title{
+    font-size: 35pt;
+    position: relative;
+    margin: 10px;
+
+}
+#tilecontainer{
+    width: 100vw;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#search{
+    color: var(--font);
+    background-color: var(--tile);
+    border: none;
+    width: 80%;
+    max-width: 400px;
+    font-size: 13pt;
+    padding: 10px;
+    margin: 20px;
+    outline: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#searchdiv{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 90%;
+}
+#m{
+    position: relative;
+    top: 6px;
+    left: -19px;
+    background-color: var(--tile);
+    padding: 8px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    user-select: none;
+    padding-left: none;
+}
+#m:hover{
+    cursor: pointer;
 }
