@@ -44,7 +44,7 @@ body{
     background-color: var(--back);
     color: var(--font);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -65,6 +65,8 @@ body{
     font-size: 35pt;
     position: relative;
     margin: 10px;
+    width: 100vw;
+    text-align: center;
 
 }
 #tilecontainer{
@@ -79,8 +81,7 @@ body{
     color: var(--font);
     background-color: var(--tile);
     border: none;
-    width: 80%;
-    max-width: 400px;
+    width: 400px;
     font-size: 13pt;
     padding: 10px;
     margin: 20px;
@@ -92,13 +93,12 @@ body{
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    width: 90%;
     position: relative;
-    left: calc(50vw - (40% + 25px + 20px));
+    left: calc(50vw - 250px);
 }
 #m{
     position: relative;
-    top: 6px;
+    top: 7px;
     left: -20px;
     background-color: var(--tile);
     padding: 8px;

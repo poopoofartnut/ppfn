@@ -94,7 +94,7 @@ $("#search").on('keypress keyup change input', function() {
     }).map(function(game) {
 
         var tile = document.createElement('s');
-        tile.href = "https://google.com";
+        tile.setAttribute('href', "https://google.com");
         tile.classList.add("tile");
         tile.innerHTML = '<img src="'+game.img+'" alt="placeholder"><p class="sigma">'+game.name+'</p>';
         div.append(tile);
@@ -104,14 +104,14 @@ $("#search").on('keypress keyup change input', function() {
 });
     var div = document.getElementById("tilecontainer");
     var arrival = '';
-    div.innerHTML = "";
+    div.innerHTML = ""; 
     dataArr.filter(function(game) {
 
         return (game.name.toLowerCase().indexOf(arrival) !== -1);
     }).map(function(game) {
 
         var tile = document.createElement('div');
-        tile.href = "https://google.com";
+        tile.setAttribute('href', "https://google.com");
         tile.classList.add("tile");
         tile.innerHTML = '<img src="'+game.img+'" alt="placeholder"><p class="sigma">'+game.name+'</p>';
         div.append(tile);
