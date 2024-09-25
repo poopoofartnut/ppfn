@@ -89,21 +89,24 @@ body{
     border-bottom-left-radius: 10px;
 }
 #searchdiv{
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     width: 90%;
+    position: relative;
+    left: calc(50vw - (40% + 25px + 20px));
 }
 #m{
     position: relative;
     top: 6px;
-    left: -19px;
+    left: -20px;
     background-color: var(--tile);
     padding: 8px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     user-select: none;
     padding-left: none;
+    width: 25px;
 }
 #m:hover{
     cursor: pointer;

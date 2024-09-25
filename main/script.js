@@ -32,7 +32,7 @@ if (!localStorage.getItem('theme')) {
        console.log("Invalid theme var input")
    }
  }
-var testData = [
+var gamelist = [
     {
         "name":"skibidi game",
         "img":"/ppfn/main/placeholder.png",
@@ -65,14 +65,7 @@ var testData = [
  // Variable to hold the locations
 var dataArr = {};
 // Load the locations once, on page-load.
-$(function() { 
-    $.getJSON("/ppfn/main/gamelist.json").done(function(data) {
-        window.dataArr = data.pages;
-    }).fail(function(data) {
-        console.log('no results found');
-        
-    });
-}); 
+window.dataArr = gamelist;
 
 // Respond to any input change, and show first few matches
 $("#search").on('keypress keyup change input', function() { 
