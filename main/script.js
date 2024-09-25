@@ -1,4 +1,30 @@
-
+var gamelist = [
+    {
+        "name":"skibidi game",
+        "img":"/ppfn/main/placeholder.png",
+        "src":"#"
+    },
+    {
+        "name":"skibidi game1",
+        "img":"/ppfn/main/placeholder.png",
+        "src":"#"
+    },
+    {
+        "name":"skibidi game2",
+        "img":"/ppfn/main/placeholder.png",
+        "src":"#"
+    },
+    {
+        "name":"skibidi game3",
+        "img":"/ppfn/main/placeholder.png",
+        "src":"#"
+    },
+    {
+        "name":"skibidi game4",
+        "img":"/ppfn/main/placeholder.png",
+        "src":"#"
+    }
+];
 if (!localStorage.getItem('theme')) {
     localStorage.setItem("theme", "1")
  }
@@ -32,51 +58,20 @@ if (!localStorage.getItem('theme')) {
        console.log("Invalid theme var input")
    }
  }
-var gamelist = [
-    {
-        "name":"skibidi game",
-        "img":"/ppfn/main/placeholder.png",
-        "src":"#"
-    },
-    {
-        "name":"skibidi game1",
-        "img":"/ppfn/main/placeholder.png",
-        "src":"#"
-    },
-    {
-        "name":"skibidi game2",
-        "img":"/ppfn/main/placeholder.png",
-        "src":"#"
-    },
-    {
-        "name":"skibidi game3",
-        "img":"/ppfn/main/placeholder.png",
-        "src":"#"
-    },
-    {
-        "name":"skibidi game4",
-        "img":"/ppfn/main/placeholder.png",
-        "src":"#"
-    }
-];
  var localskib;
  if(localStorage.getItem('theme')=="1"){var localskib = "dark"}else{var localskib = "light"}
  themeToggle(localskib);
- // Variable to hold the locations
 var dataArr = {};
-// Load the locations once, on page-load.
 window.dataArr = gamelist;
 
-// Respond to any input change, and show first few matches
 $("#search").on('keypress keyup change input', function() { 
     var div = document.getElementById("tilecontainer");
     var arrival = $(this).val().toLowerCase();
     div.innerHTML = "";
     dataArr.filter(function(game) {
-        // look for the entry with a matching `code` value
         return (game.name.toLowerCase().indexOf(arrival) !== -1);
     }).map(function(game) {
-        // get titles of matches
+
         var tile = document.createElement('s');
         tile.href = "https://google.com";
         tile.classList.add("tile");
@@ -85,18 +80,16 @@ $("#search").on('keypress keyup change input', function() {
          
     });
     
-         // create one text with a line per matched title
 });
-// submit button is not needed really
     var div = document.getElementById("tilecontainer");
     var arrival = '';
     div.innerHTML = "";
     dataArr.filter(function(game) {
-        // look for the entry with a matching `code` value
+
         return (game.name.toLowerCase().indexOf(arrival) !== -1);
     }).map(function(game) {
-        // get titles of matches
-        var tile = document.createElement('s');
+
+        var tile = document.createElement('div');
         tile.href = "https://google.com";
         tile.classList.add("tile");
         tile.innerHTML = '<img src="'+game.img+'" alt="placeholder"><p class="sigma">'+game.name+'</p>';
