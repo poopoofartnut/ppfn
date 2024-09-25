@@ -34,3 +34,4 @@ if (!localStorage.getItem('theme')) {
  themeToggle(localvar);
 
  document.getElementById("openmain").addEventListener('click', function() {location.href = "/main"}, false);
+ document.getElementById("openmisc").addEventListener('click', function() {location.href = "/misc"}, false);
