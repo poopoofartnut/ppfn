@@ -33,3 +33,4 @@ if (!localStorage.getItem('theme')) {
  if(localStorage.getItem('theme')=="1"){var localvar = "dark"}else{var localvar = "light"}
  themeToggle(localvar);
 
+ document.getElementById("openmain").addEventListener('click', function() {location.href = "/main"}, false);
