@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<body>
+  <div class="container">
+    <button id="res" onclick="change()"></button>
+    <label for="url-input">about:blank Cloaker</label>
+    <input id="url-input" type="url" placeholder="https://google.com" />
+    <button onclick="run()">Open</button>
+    <script>
+        function run(){
+        var url = document.getElementById('url-input').value;
+        if (url.length > 7){
+            var w = window.open("about:blank", "_blank", "status=no,toolbar=no,location=no,directories=no,resizable=yes,scrollbars=yes,width=9999,height=9999");
+            w.document.write(`<iframe style="height:100%; width: 100%; border: none; position: fixed; top: 0; right: 0; left: 0; bottom: 0; border: none;" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="${url}"></iframe>`);
+        }
+        }
+        if (!localStorage.getItem('theme')) {
+    localStorage.setItem("theme", "1")
+ }
+
+ function change() {
+   if (localStorage.getItem('theme') == '1') {
+     localStorage.setItem("theme", '0')
+     themeToggle("light");
+   } else {
+     localStorage.setItem("theme", '1')
+     themeToggle("dark");
+   }
+ }
+ function themeToggle(sigma){
+   let root = document.documentElement;
+   if(sigma == "light"){
+       root.style.setProperty("--back", "rgb(230, 230, 230)");
+       root.style.setProperty("--font", "black");
+       root.style.setProperty("--tile", "rgb(200, 200, 200)");
+       document.getElementById("res").innerHTML= "<span id='g' class='material-symbols-outlined'>dark_mode</span>";
+       root.style.setProperty("--res", "rgb(56, 56, 56)");
+       root.style.setProperty("--themeicon", "white");
+   }else if (sigma == "dark"){
+       root.style.setProperty("--back", "rgb(56, 56, 56)");
+       root.style.setProperty("--font", "white");
+       root.style.setProperty("--tile", "rgb(70, 70, 70)");
+       document.getElementById("res").innerHTML= "<span id='g' class='material-symbols-outlined'>light_mode</span>";
+       root.style.setProperty("--res", "rgb(230, 230, 230)");
+       root.style.setProperty("--themeicon", "black");
+   }else{
+       console.log("Invalid theme var input")
+   }
+ }
+ var localvar;
+ if(localStorage.getItem('theme')=="1"){var localvar = "dark"}else{var localvar = "light"}
+ themeToggle(localvar);
+    </script>
+  </div>
+</body>
+
+</html>
+<style>
+:root{
+    --back: rgb(230, 230, 230);
+    --font: black;
+    --tile: rgb(200, 200, 200);
+    --res: white;
+    --themeicon: white;
+}
+body{
+    background-color: var(--back);
+    color: var(--font);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#res{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0px 0px 10px var(--font);
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: var(--res);
+    border: none;
+    color: var(--themeicon);
+}
+input{
+    color: var(--font);
+    background-color: var(--tile);
+    border: none;
+    width: 400px;
+    font-size: 13pt;
+    padding: 10px;
+    margin: 20px;
+    outline: none;
+    border-radius: 10px;
+    color: var(--font);
+    outline: none;
+}
+button{
+  color: var(--font);
+    background-color: var(--tile);
+    border: none;
+    font-size: 13pt;
+    padding: 10px;
+    margin: 20px;
+    outline: none;
+    border-radius: 10px;
+    color: var(--font);
+    outline: none;
+}
+</style>
