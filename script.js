@@ -29,9 +29,8 @@ if (!localStorage.getItem('theme')) {
        console.log("Invalid theme var input")
    }
  }
- var localvar;
- if(localStorage.getItem('theme')=="1"){var localvar = "dark"}else{var localvar = "light"}
- themeToggle(localvar);
-
+ var localskib;
+ if(localStorage.getItem('theme')=="1"){var localskib = "dark"}else{var localskib = "light"}
+ themeToggle(localskib);
  document.getElementById("openmain").addEventListener('click', function() {location.href = "/main"}, false);
  document.getElementById("openmisc").addEventListener('click', function() {location.href = "/misc"}, false);
