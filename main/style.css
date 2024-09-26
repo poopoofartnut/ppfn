@@ -50,7 +50,7 @@ body{
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     width: 100vw;
-    overflow-y: hidden;
+    overflow-y: none;
 }
 #res{
     border-radius: 100%;
