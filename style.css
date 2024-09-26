@@ -67,6 +67,18 @@ element-selector {
     border: none;
     color: var(--themeicon);
 }
+#wifi{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 75px;
+    right: 10px;
+    background-color: var(--res);
+    border: none;
+    box-shadow: 0px 0px 10px var(--font);
+    color: var(--themeicon);
+}
 #title{
     font-size: 35pt;
     position: relative;
@@ -74,6 +86,21 @@ element-selector {
     width: 100vw;
     text-align: center;
 
+}
+#sigma{
+    font-size: 25pt;
+    position: relative;
+    margin: 10px;
+    width: 100vw;
+    text-align: center;
+
+}
+#sigma2{
+    font-size: 18pt;
+    position: relative;
+    width: 100vw;
+    text-align: center;
+    padding-bottom: 10px;
 }
 #tilecontainer{
     width: 100vw;
@@ -95,6 +122,32 @@ element-selector {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
+#blob{
+    color: var(--font);
+    background-color: var(--tile);
+    border: none;
+    width: 400px;
+    font-size: 13pt;
+    padding: 10px;
+    margin: 20px;
+    outline: none;
+    border-radius: 10px;
+}
+#download{
+    position: relative;
+    top: -60px;
+    left: 450px;
+    background-color: var(--tile);
+    padding: 10px;
+    border-radius: 10px;
+    user-select: none;
+    padding-left: none;
+    width: 100px;
+    border: none;
+    font-size: 13pt;
+    color: var(--font);
+}
+
 #searchdiv{
     flex-direction: column;
     flex-wrap: nowrap;
