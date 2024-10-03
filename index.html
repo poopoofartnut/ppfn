@@ -14,28 +14,6 @@
     <div id="tilecontainer">
     </div>
     <button id="res" onclick="change()"></button>
-    <button onclick="document.getElementById('blobwifi').scrollIntoView();" id="wifi">WiFi</button>
-    <hr id="blobwifi" width="97%;" color="gray" size="3" style="position: relative;left: -10px;">
-    <p id="sigma">BlobWifi exploit</p>
-    <p id="sigma2">Instructions:</p>
-    <div style="padding-left: 20px;text-wrap: pretty;width: 90vw;">
-    <ul>
-        <li>Go to chrome://network#state and scroll to the bottom of the page.</li>
-        <li>You should see a section titled "Favorite Networks".</li>
-        <li>Find the managed Wi-Fi network that you want to use Blobwifi in and click the + sign next to it.</li>
-        <li>You should see some text pop up.</li>
-        <li>Copy the entire text that showed up. If you want, you can copy the text of multiple Wi-Fi networks at the same time to use Blobwifi in all of them.</li>
-        <li>Paste the copied text into the textbox below.</li>
-        <li>Press the "Download" button to download the Blobwifi file.</li>
-    </ul>
-</div>
-    <input type="text" id="blob" placeholder="Paste here">
-    <button id="download" onclick="gen(document.getElementById('blob').value)">download</button>
-    <div style="padding-left: 20px;position: relative;top: -40px;text-wrap: pretty;width: 90vw;">
-    <p>Once you have downloaded the file, go to chrome://network#general</p>
-    <p>Scroll down and click on the "Import ONC" button and import the newly downloaded file.</p>
-    <p style="color: gray; font-size: smaller;">credit to blobby-boi on github as this uses his genorator script</p>
-    </div>
 </body>
 </html>
 <script>
@@ -117,49 +95,5 @@ $("#search").on('keypress keyup change input', function() {
         div.append(tile);
          
 });
-function gen(networks) {
-  try {
-    var networks;
-    networks = networks.replace(/(?<=[+-]..){/g, "");
-    networks = networks.replace(/(?<=})[^{\]}]*(?={.."C)/g, ",");
-    networks = networks.substring(networks.indexOf("{"));
-    networks = networks.substring(0, networks.lastIndexOf("}") + 1);
-    networks = JSON.parse("[" + networks + "]");
-    var onc = {
-      Type: "UnencryptedConfiguration",
-      NetworkConfigurations: [],
-    };
-    networks.forEach(function (network) {
-      if (!network.WiFi || !network.Connectable) return;
-      onc.NetworkConfigurations.push({
-        GUID: network.GUID,
-        Metered: true,
-        Name: network.Name,
-        Type: "WiFi",
-        WiFi: {
-          AutoConnect: true,
-          SSID: network.Name,
-          Security: "None",
-        },
-	NameServersConfigType: "Static",
-	StaticIPConfig: {
-	    NameServers: ["8.8.8.8", "8.8.4.4", "8.8.8.8", "8.8.4.4"]
-	},
-        ProxySettings:{
-	    Type:"Direct"
-	}
-      });
-    });
 
-    if (!onc.NetworkConfigurations[0]) return;
-    var link = document.createElement("a");
-    link.href = URL.createObjectURL(new Blob([JSON.stringify(onc)]));
-    link.download = "blobwifi.onc";
-    link.click();
-    link.remove();
-  } catch (error) {
-    console.error(error);
-    alert("An error occurred, check console logs");
-  }
-}
 </script>
