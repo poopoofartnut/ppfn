@@ -11,7 +11,7 @@ div{
 .tile{
     background-color: var(--tile);
     width: 200px;
-    height:250px;
+    height:275px;
     border-radius: 20px;
     margin: 10px;
     display: flex;
