@@ -32,6 +32,9 @@ img{
     border-style: none;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
+    position: relative;
+    top: 0;
+    left: 0;
 }
 .sigma{
     width: 100%;
