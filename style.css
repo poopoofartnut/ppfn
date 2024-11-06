@@ -39,6 +39,7 @@ img{
     position: relative;
     bottom: 5px;
     font-size: 15.5pt;
+    height: 75px;
 }
 body{
     background-color: var(--back);
