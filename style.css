@@ -116,6 +116,19 @@ element-selector {
     flex-wrap: wrap;
     justify-content: center;
 }
+#tilecontainer h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Adjust your existing .gametile styles as needed */
 #search{
     color: var(--font);
     background-color: var(--tile);
