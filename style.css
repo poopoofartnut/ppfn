@@ -74,7 +74,6 @@ element-selector {
     color: var(--themeicon);
     cursor: pointer;
 }
-
 #title{
     font-size: 35pt;
     position: relative;
