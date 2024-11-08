@@ -41,8 +41,11 @@ img{
     text-align: center;
     position: relative;
     bottom: 5px;
-    font-size: 15.5pt;
+    font-size: 13pt;
     height: 75px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
 }
 body{
     background-color: var(--back);
@@ -69,19 +72,9 @@ element-selector {
     background-color: var(--res);
     border: none;
     color: var(--themeicon);
+    cursor: pointer;
 }
-#wifi{
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    top: 75px;
-    right: 10px;
-    background-color: var(--res);
-    border: none;
-    box-shadow: 0px 0px 10px var(--font);
-    color: var(--themeicon);
-}
+
 #title{
     font-size: 35pt;
     position: relative;
@@ -113,6 +106,19 @@ element-selector {
     flex-wrap: wrap;
     justify-content: center;
 }
+#tilecontainer h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Adjust your existing .gametile styles as needed */
 #search{
     color: var(--font);
     background-color: var(--tile);
