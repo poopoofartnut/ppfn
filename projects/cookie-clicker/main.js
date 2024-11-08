@@ -14467,7 +14467,7 @@ window.onload=function()
 			console.log('[=== '+choose([
 				'Oh, hello!',
 				'hey, how\'s it hangin',
-				'3kh0 is the best lol',
+				'ppfn is the best lol',
 				'About to cheat in some cookies or just checking for bugs?',
 				'Remember : cheated cookies taste awful!',
 				'Hey, Orteil here. Cheated cookies taste awful... or do they?',
