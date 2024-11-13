@@ -1,0 +1,3 @@
+[submodule "flash-games/ruffle"] 
+  path = flash-games/ruffle
+  url = git://github.com/BinBashBanana/gstore
