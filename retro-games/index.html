@@ -243,117 +243,81 @@
 
                 script.src = "data/loader.js";
                 document.body.appendChild(script);
-            }
+            
             box.ondragover = () => box.setAttribute("drag", true);
             box.ondragleave = () => box.removeAttribute("drag");
-            function openGame(url){
-                const parts = url.name.split(".")
+            // Function to detect core based on file extension
+            function detectCore(filename) {
+                const ext = filename.split('.').pop().toLowerCase();
+                const coreMap = {
+                    'nes': 'nes',
+                    'fds': 'nes',
+                    'unif': 'nes',
+                    'unf': 'nes',
+                    'smc': 'snes',
+                    'fig': 'snes',
+                    'sfc': 'snes',
+                    'gd3': 'snes',
+                    'gd7': 'snes',
+                    'dx2': 'snes',
+                    'bsx': 'snes',
+                    'swc': 'snes',
+                    'z64': 'n64',
+                    'n64': 'n64',
+                    'v64': 'n64',
+                    'pce': 'pce',
+                    'ngp': 'ngp',
+                    'ngc': 'ngp',
+                    'ws': 'ws',
+                    'wsc': 'ws',
+                    'col': 'coleco',
+                    'cv': 'coleco',
+                    'd64': 'vice_x64sc',
+                    'nds': 'nds',
+                    'gba': 'gba',
+                    'gb': 'gb',
+                    'md': 'segaMD',
+                    'smd': 'segaMD',
+                    'gen': 'segaMD',
+                    'sms': 'segaMS',
+                    'gg': 'segaGG',
+                    'cue': 'segaCD',
+                    '32x': 'sega32x',
+                    'lnx': 'lynx',
+                    'jag': 'jaguar',
+                    'sat': 'segaSaturn',
+                    'a78': 'atari7800',
+                    'a26': 'atari2600',
+                    'pce': 'pce',
+                    'pcfx': 'pcfx',
+                    'ws': 'ws',
+                    'wsc': 'ws'
+                };
 
-                const core = await (async (ext) => {
-                    if (["fds", "nes", "unif", "unf"].includes(ext))
-                        return "nes"
+                return coreMap[ext] || null;
+            }
 
-                    if (["smc", "fig", "sfc", "gd3", "gd7", "dx2", "bsx", "swc"].includes(ext))
-                        return "snes"
+            // Function to load and run the game
+            function loadGame(filename, core) {
+                const div = document.createElement("div");
+                const sub = document.createElement("div");
+                const script = document.createElement("script");
 
-                    if (["z64", "n64"].includes(ext))
-                        return "n64"
-
-                    if (["pce"].includes(ext))
-                        return "pce"
-
-                    if (["ngp", "ngc"].includes(ext))
-                        return "ngp"
-
-                    if (["ws", "wsc"].includes(ext))
-                        return "ws"
-
-                    if (["col", "cv"].includes(ext))
-                        return "coleco"
-
-                    if (["d64"].includes(ext))
-                        return "vice_x64sc"
-
-                    if (["nds", "gba", "gb", "z64", "n64"].includes(ext))
-                        return ext
-
-                    return await new Promise(resolve => {
-                        var coreValues = {
-                            "Nintendo 64": "n64",
-                            "Nintendo Game Boy": "gb",
-                            "Nintendo Game Boy Advance": "gba",
-                            "Nintendo DS": "nds",
-                            "Nintendo Entertainment System": "nes",
-                            "Super Nintendo Entertainment System": "snes",
-                            "PlayStation": "psx",
-                            "Virtual Boy": "vb",
-                            "Sega Mega Drive": "segaMD",
-                            "Sega Master System": "segaMS",
-                            "Sega CD": "segaCD",
-                            "Atari Lynx": "lynx",
-                            "Sega 32X": "sega32x",
-                            "Atari Jaguar": "jaguar",
-                            "Sega Game Gear": "segaGG",
-                            "Sega Saturn": "segaSaturn",
-                            "Atari 7800": "atari7800",
-                            "Atari 2600": "atari2600",
-                            "NEC TurboGrafx-16/SuperGrafx/PC Engine": "pce",
-                            "NEC PC-FX": "pcfx",
-                            "SNK NeoGeo Pocket (Color)": "ngp",
-                            "Bandai WonderSwan (Color)": "ws",
-                            "ColecoVision": "coleco",
-                            "Commodore 64": "vice_x64sc",
-                            "Commodore 128": "vice_x128",
-                            "Commodore VIC20": "vice_xvic",
-                            "Commodore Plus/4": "vice_xplus4",
-                            "Commodore PET": "vice_xpet"
-                        }
-
-                        const cores = Object.keys(coreValues).sort().reduce(
-                            (obj, key) => { 
-                                obj[key] = coreValues[key]; 
-                                return obj;
-                            }, 
-                            {}
-                        );
-
-                        const button = document.createElement("button")
-                        const select = document.createElement("select")
-
-                        for (const type in cores) {
-                            const option = document.createElement("option")
-
-                            option.value = cores[type]
-                            option.textContent = type
-                            select.appendChild(option)
-                        }
-
-                        button.onclick = () => resolve(select[select.selectedIndex].value)
-                        button.textContent = "Load game"
-                        box.innerHTML = ""
-
-                        box.appendChild(select)
-                        box.appendChild(button)
-                    })
-                })(parts.pop())
-
-                const div = document.createElement("div")
-                const sub = document.createElement("div")
-                const script = document.createElement("script")
-
-                sub.id = "game"
-                div.id = "display"
+                sub.id = "game";
+                div.id = "display";
 
                 const top = document.getElementById("top");
-                top.remove();
-                box.remove()
-                div.appendChild(sub)
-                document.body.appendChild(div)
+                if (top) top.remove();
+                const box = document.getElementById("box");
+                if (box) box.remove();
+
+                div.appendChild(sub);
+                document.body.appendChild(div);
 
                 window.EJS_player = "#game";
-                window.EJS_gameName = parts.shift();
+                window.EJS_gameName = filename.split('/').pop().split('.')[0];
                 window.EJS_biosUrl = "";
-                window.EJS_gameUrl = url;
+                window.EJS_gameUrl = filename;
                 window.EJS_core = core;
                 window.EJS_pathtodata = "data/";
                 window.EJS_startOnLoaded = true;
@@ -364,9 +328,28 @@
                 script.src = "data/loader.js";
                 document.body.appendChild(script);
             }
-            if(document.location.hash.substring(1)){
-                openGame(document.location.hash.substring(1));
-            } 
+
+            // Check for hash in URL and load game if present
+            function checkHashAndLoadGame() {
+                const hash = window.location.hash.substring(1);
+                if (hash) {
+                    const decodedFilename = decodeURIComponent(hash);
+                    const core = detectCore(decodedFilename);
+                    if (core) {
+                        loadGame(decodedFilename, core);
+                    } else {
+                        console.error("Unable to detect core for file:", decodedFilename);
+                    }
+                }
+            }
+
+            // Run the check when the page loads
+            window.addEventListener('load', checkHashAndLoadGame);
+
+            // Also run the check when the hash changes
+            window.addEventListener('hashchange', checkHashAndLoadGame);
         </script>
+    </body>
+</html>
     </body>
 </html>
