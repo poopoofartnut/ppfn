@@ -31,6 +31,11 @@ div{
     color:gray;position: absolute;
     bottom: 5px;
 }
+#skeeb{
+    text-align: center;
+    color:var(--tile);position: absolute;
+    bottom: 5px;
+}
 
 img{
     width: 300px;
@@ -112,6 +117,7 @@ element-selector {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    top: 13vh;
 }
 #tilecontainer h2 {
     margin-top: 20px;
