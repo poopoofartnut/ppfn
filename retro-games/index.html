@@ -243,7 +243,7 @@
 
                 script.src = "data/loader.js";
                 document.body.appendChild(script);
-            
+            }
             box.ondragover = () => box.setAttribute("drag", true);
             box.ondragleave = () => box.removeAttribute("drag");
             // Function to detect core based on file extension
@@ -349,7 +349,5 @@
             // Also run the check when the hash changes
             window.addEventListener('hashchange', checkHashAndLoadGame);
         </script>
-    </body>
-</html>
     </body>
 </html>
