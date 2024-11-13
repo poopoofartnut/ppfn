@@ -1,0 +1,185 @@
+:root{
+    --back: rgb(230, 230, 230);
+    --font: black;
+    --tile: rgb(200, 200, 200);
+    --res: white;
+    --themeicon: white;
+}
+div{
+    border-style: none;
+}
+.tile{
+    background-color: var(--tile);
+    width: 300px;
+    height:375px;
+    border-radius: 20px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    scale: 1;
+    transition: transform 0.2s;
+    text-decoration: none;
+}
+.tile:hover{
+    transform: scale(1.02);
+    
+}
+.skeeb{
+    text-align: center;
+    color:gray;position: relative;
+    bottom: 5px;
+}
+
+img{
+    width: 300px;
+    height: 300px;
+    border-style: none;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.sigma{
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 5px;
+    font-size: 20pt;
+    height: 75px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+body{
+    background-color: var(--back);
+    color: var(--font);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    overflow-x: hidden;
+}
+element-selector {
+    overflow-x: hidden;
+}
+#res{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0px 0px 10px var(--font);
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: var(--res);
+    border: none;
+    color: var(--themeicon);
+    cursor: pointer;
+}
+#title{
+    font-size: 35pt;
+    position: relative;
+    margin: 10px;
+    width: 100vw;
+    text-align: center;
+
+}
+#sigma{
+    font-size: 25pt;
+    position: relative;
+    margin: 10px;
+    width: 100vw;
+    text-align: center;
+
+}
+#sigma2{
+    font-size: 18pt;
+    position: relative;
+    width: 100vw;
+    text-align: center;
+    padding-bottom: 10px;
+}
+#tilecontainer{
+    width: 100vw;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#tilecontainer h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Adjust your existing .gametile styles as needed */
+#search{
+    color: var(--font);
+    background-color: var(--tile);
+    border: none;
+    width: 400px;
+    font-size: 13pt;
+    padding: 10px;
+    margin: 20px;
+    outline: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#blob{
+    color: var(--font);
+    background-color: var(--tile);
+    border: none;
+    width: 400px;
+    font-size: 13pt;
+    padding: 10px;
+    margin: 20px;
+    outline: none;
+    border-radius: 10px;
+}
+#download{
+    position: relative;
+    top: -60px;
+    left: 450px;
+    background-color: var(--tile);
+    padding: 10px;
+    border-radius: 10px;
+    user-select: none;
+    padding-left: none;
+    width: 100px;
+    border: none;
+    font-size: 13pt;
+    color: var(--font);
+}
+
+#searchdiv{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    position: relative;
+    left: calc(50vw - 250px);
+}
+#m{
+    position: relative;
+    top: 7px;
+    left: -20px;
+    background-color: var(--tile);
+    padding: 8px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    user-select: none;
+    padding-left: none;
+    width: 25px;
+}
+#m:hover{
+    cursor: pointer;
+}
