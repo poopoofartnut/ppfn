@@ -8,6 +8,18 @@
 div{
     border-style: none;
 }
+#back{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: gray;
+}
 .tile{
     background-color: var(--tile);
     width: 200px;

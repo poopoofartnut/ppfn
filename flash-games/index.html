@@ -17,6 +17,9 @@
     <p>
 
     </p>
+    <button id="back" onclick="window.open('/','_self')"><span class="material-symbols-outlined">
+      arrow_back
+      </span></button>
 </body>
 </html>
 <script>
@@ -1053,7 +1056,18 @@ element-selector {
     margin-bottom: 10px;
     border-bottom: 1px solid #ccc;
 }
-
+#back{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: gray;
+}
 .section {
     display: flex;
     flex-wrap: wrap;

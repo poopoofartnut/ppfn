@@ -6,11 +6,11 @@ def generate_game_tiles(swf_directory):
     
     # Iterate through all files in the specified directory
     for filename in os.listdir(swf_directory):
-        if filename.lower().endswith('.nes'):
+        if filename.lower().endswith('.smc'):
             # Create a game object for each SWF file
             game = {
                 "title": filename,  
-                "link": f"emulator/index.html#{filename}"
+                "link": f"emulator/index.html#snes/{filename}"
             }
             games.append(game)
     
@@ -27,13 +27,13 @@ def generate_game_tiles(swf_directory):
     return js_code
 
 # Specify the directory containing SWF files
-swf_directory = "emulator/nes"
+swf_directory = "emulator/snes"
 
 # Generate the JavaScript code
 generated_js = generate_game_tiles(swf_directory)
 
 # Write the generated JavaScript to a file
-output_file = "/workspaces/ppfn/flash-games/generated_games.js"
+output_file = "/workspaces/ppfn/retro-games/generated_games.js"
 with open(output_file, "w") as f:
     f.write(generated_js)
 
