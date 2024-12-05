@@ -9,6 +9,10 @@
         <button id="back" onclick="window.open('/ppfn','_self')"><span class="material-symbols-outlined">
             arrow_back
             </span></button>
+            <div id = "box">
+                <input type = "file" id = "input">
+                Drag ROM file or click here
+            </div>
         <script>
              function change() {
    if (localStorage.getItem('theme') == '1') {
@@ -167,12 +171,10 @@
     </head>
 
     <body>
-        <div id = "box">
-            <input type = "file" id = "input">
-            Drag ROM file or click here
-        </div>
+        
 
         <script>
+            const input = document.getElementById('input');
             let enableDebug = false;
             let enableThreads = false;
             const queryString = window.location.search;
