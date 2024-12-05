@@ -3,6 +3,11 @@
 
 Welcome to **PPFN**, a simple, fast, and clean gaming site built from the ground up. This project is designed for hosting on a web server or a web hosting service such as GitHub Pages.
 
+## Official instances
+At the moment there are 2 official versions of ppfn both hosted on github pages:
+- [poopoofartnut.github.io/ppfn](https://poopoofartnut.github.io/ppfn)
+- [ppfn-official.github.io](https://ppfn-official.github.io)
+
 ## Features
 
 - **Flash Games**: Classic Flash games (via Flash emulators).
