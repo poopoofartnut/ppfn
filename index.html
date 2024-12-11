@@ -17,19 +17,9 @@
     <div id="tilecontainer">
     </div>
     <button id="res" onclick="change()"></button>
-    <p id="popup" style="position: fixed; bottom: 10px;text-align: center;padding: 5px;background-color: var(--tile);border-radius: 5px;color: var(--font); align-self: center;">
-      If you want to report an issue or suggust additions (Games or features) please do so <a style="color: rgb(123, 191, 255);text-decoration: underline;cursor: pointer;" href="https://github.com/poopoofartnut/ppfn/issues/new">here</a> 
-    </p>
 </body>
 </html>
 <script>
-  if (window.location.href != "https://poopoofartnut.github.io/ppfn/"&&"https://ppfn-official.github.io/"){
-    document.getElementById('popup').style.display="none";
-    var skibidi = document.createElement("p");
-    skibidi.style="position: fixed; bottom: 10px;text-align: center;padding: 5px;background-color: var(--tile);border-radius: 5px;color: var(--font); align-self: center;";
-    skibidi.innerHTML = "This is not the offical instance of ppfn, your welcome to keep using this but <br> Please visit <a style='color: rgb(123, 191, 255);text-decoration: underline;cursor: pointer;' href='https://github.com/poopoofartnut/ppfn/blob/MAIN/readme.md'>here</a> to see official instances available.";
-    document.body.appendChild(skibidi);
-  }
     var gamelist = [ 
   {
     "link": "flash-games/",
