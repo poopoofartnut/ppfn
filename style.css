@@ -21,6 +21,7 @@ div{
     transition: transform 0.2s;
     text-decoration: none;
     align-items: center;
+    z-index: -1;
 }
 .tile:hover{
     transform: scale(1.02);
