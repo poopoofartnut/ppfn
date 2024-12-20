@@ -10,20 +10,6 @@
         </style>
     </head>
     <body>
-        <div id="gameForm">
-            <input type="file" id="romFile" accept=".nes,.smc,.z64,.n64,.v64,.nds,.gba,.gb">
-            <select id="consoleSelect">
-                <option value="">Select Console</option>
-                <option value="nes">Nintendo (NES)</option>
-                <option value="snes">Super Nintendo (SNES)</option>
-                <option value="n64">Nintendo 64</option>
-                <option value="nds">Nintendo DS</option>
-                <option value="gba">Game Boy Advance</option>
-                <option value="gb">Game Boy</option>
-                <!-- Add more console options as needed -->
-            </select>
-            <button id="submitButton">Load Game</button>
-        </div>
 
         <script>
             let enableDebug = false;
@@ -99,17 +85,6 @@
                 }
             }
 
-            // Event listener for the submit button
-            document.getElementById('submitButton').addEventListener('click', function() {
-                const fileInput = document.getElementById('romFile');
-                const consoleSelect = document.getElementById('consoleSelect');
-                
-                if (fileInput.files.length > 0 && consoleSelect.value) {
-                    loadGame(fileInput.files[0], consoleSelect.value);
-                } else {
-                    alert('Please select both a ROM file and a console.');
-                }
-            });
 
             // Run the check when the page loads
             window.addEventListener('load', checkHashAndLoadGame);
