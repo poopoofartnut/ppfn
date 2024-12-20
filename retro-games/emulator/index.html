@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>EmulatorJS | PPFN</title>
+        <title>EmulatorJS | PPFNdsfsdf</title>
         <link rel = icon href = docs/favicon.ico sizes = "16x16 32x32 48x48 64x64" type = image/vnd.microsoft.icon>
         <meta name = viewport content = "width = device-width, initial-scale = 1">
         <style>
@@ -124,39 +124,55 @@
             } else {
                 console.log("Threads are disabled");
             }
-            
+            // Function to parse hash and load game
+            function loadGameFromHash() {
+                const hash = window.location.hash.substring(1);
+                if (hash) {
+                    const [core, game] = hash.split('|');
+                    if (core && game) {
+                        loadGame(core, game);
+                    }
+                }
+            }
+
+            // Function to load game
+            function loadGame(core, game) {
+                const div = document.createElement("div");
+                const sub = document.createElement("div");
+                const script = document.createElement("script");
+
+                sub.id = "game";
+                div.id = "display";
+
+                const top = document.getElementById("top");
+                top.remove();
+                box.remove();
+                div.appendChild(sub);
+                document.body.appendChild(div);
+
+                window.EJS_player = "#game";
+                window.EJS_gameName = game;
+                window.EJS_biosUrl = "";
+                window.EJS_gameUrl = `games/${game}`;
+                window.EJS_core = core;
+                window.EJS_pathtodata = "data/";
+                window.EJS_startOnLoaded = true;
+                window.EJS_DEBUG_XX = enableDebug;
+                window.EJS_disableDatabases = true;
+                window.EJS_threads = enableThreads;
+
+                script.src = "data/loader.js";
+                document.body.appendChild(script);
+            }
+
+            // Check for hash when page loads
+            window.addEventListener('load', loadGameFromHash);
+                        
             input.onchange = async () => {
                 const url = input.files[0]
                 const parts = input.files[0].name.split(".")
 
                 const core = await (async (ext) => {
-                    if (["fds", "nes", "unif", "unf"].includes(ext))
-                        return "nes"
-
-                    if (["smc", "fig", "sfc", "gd3", "gd7", "dx2", "bsx", "swc"].includes(ext))
-                        return "snes"
-
-                    if (["z64", "n64"].includes(ext))
-                        return "n64"
-
-                    if (["pce"].includes(ext))
-                        return "pce"
-
-                    if (["ngp", "ngc"].includes(ext))
-                        return "ngp"
-
-                    if (["ws", "wsc"].includes(ext))
-                        return "ws"
-
-                    if (["col", "cv"].includes(ext))
-                        return "coleco"
-
-                    if (["d64"].includes(ext))
-                        return "vice_x64sc"
-
-                    if (["nds", "gba", "gb", "z64", "n64"].includes(ext))
-                        return ext
-
                     return await new Promise(resolve => {
                         var coreValues = {
                             "Nintendo 64": "n64",
