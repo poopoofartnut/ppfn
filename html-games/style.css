@@ -195,3 +195,15 @@ element-selector {
 #m:hover{
     cursor: pointer;
 }
+#back{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    border: none;
+    color: var(--font);
+    cursor: pointer;
+    background-color: var(--tile);
+}
