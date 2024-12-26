@@ -1,9 +1,9 @@
 :root{
-    --back: rgb(230, 230, 230);
+    --back: rgb(0, 0, 0);
     --font: black;
-    --tile: rgb(200, 200, 200);
-    --res: white;
-    --themeicon: white;
+    --tile: rgb(0, 0, 0);
+    --res: rgb(0, 0, 0);
+    --themeicon: rgb(0, 0, 0);
 }
 div{
     border-style: none;
