@@ -8,17 +8,21 @@
 div{
     border-style: none;
 }
-#back{
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    border: none;
-    color: white;
-    cursor: pointer;
-    background-color: gray;
+body{
+    background-color: var(--back);
+    color: var(--font);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    overflow-x: hidden;
+    background-size: 40px 40px;
+    background-image:
+        linear-gradient(to right, rgb(43, 43, 43) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(43, 43, 43) 1px, transparent 1px);
+    background-attachment: fixed;
 }
 .tile{
     background-color: var(--tile);
