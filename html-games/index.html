@@ -801,24 +801,6 @@
 if (!localStorage.getItem('theme')) {
     localStorage.setItem("theme", "1")
  }
- const myPopup = new Popup({
-    id: "gamepopup",
-    title: "New games",
-    content: `New games added over break:
-        -Basket random
-        -Boxing random
-        -Volly random
-        -Soccer random
-        -BitLife
-        -A dance of fire and ice`,
-    showImmediately: true,
-    backgroundColor: "#1f1f1f",
-    titleColor: "#ffffff",
-    textColor: "#ffffff",
-    closeColor: "#ffffff",
-    fontSizeMultiplier:0.7,
-    titleSizeMultiplier:0.7,
-});
 
  function change() {
    if (localStorage.getItem('theme') == '1') {
