@@ -14,6 +14,14 @@
 <script>
     window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
     cronitor('config', { clientKey: '8b9ac14f693662c7e4489199bffaf6ae' });
+    const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+        const lastVisit = localStorage.getItem('lastVisitDate');
+
+        if (lastVisit !== today) {
+            // If the last visit date is not today, track the viewer as unique
+            cronitor("track", "Unique Viewers");
+            localStorage.setItem('lastVisitDate', today); // Update the last visit date to today
+        }
 </script>
 
 </head>
