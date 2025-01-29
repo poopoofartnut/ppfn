@@ -894,6 +894,8 @@ function cloak(game){
             iframe.style.height = "100%";
             iframe.style.border = "none";
             iframe.src = url
+            win.document.body.style.padding="0";
+            win.document.body.style.margin="0";
             win.document.body.appendChild(iframe)
 }
 var div = document.getElementById("tilecontainer");
