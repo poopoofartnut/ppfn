@@ -21,6 +21,13 @@
             cronitor("track", "UniqueViewers");
             localStorage.setItem('lastVisitDate', today); // Update the last visit date to today
         }
+        const user = localStorage.getItem('user');
+
+        if (user != true) {
+            // If the last visit date is not today, track the viewer as unique
+            cronitor("track", "AlltimeUniqueViewers");
+            localStorage.setItem('user', true); // Update the last visit date to today
+        }
 </script>
 
  <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
