@@ -37,6 +37,11 @@
   
     <h1 id="title">Games</h1>
     <div id="searchdiv"><input type="text" name="search" id="search" placeholder="search"><span id="m" class="material-symbols-outlined">search</span></div>
+    <h2 style="text-align: center;margin-top: 10px;">about:blank cloak</h2>
+    <label class="switch" style="align-self: center;margin-bottom:30px;"> 
+      <input id="ab" type="checkbox">
+      <span class="slider round"></span>
+    </label>
     <div id="tilecontainer">
     </div>
     <button id="res" onclick="change()"></button>
@@ -824,7 +829,7 @@
     "title": "World's Hardest Game 2"
   }
 ];
-
+var ab = false;
 if (!localStorage.getItem('theme')) {
     localStorage.setItem("theme", "1")
  }
@@ -881,11 +886,21 @@ $("#search").on('keypress keyup change input', function() {
     });
     
 });
+function cloak(game){
+  var win = window.open()
+            var url = game
+            var iframe = win.document.createElement('iframe')
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            iframe.src = url
+            win.document.body.appendChild(iframe)
+}
 var div = document.getElementById("tilecontainer");
 div.innerHTML = ""; 
 dataArr.forEach(function(game) {
     var tile = document.createElement('div');
-    tile.addEventListener('click', function() {location.href = game.link}, false);
+    tile.addEventListener('click', function() {if(document.getElementById('ab').checked == false){location.href = game.link}else{cloak(game.link)}}, false);
     tile.classList.add("tile");
     tile.innerHTML = '<img src="'+game.imgSrc+'" alt="placeholder"><p class="sigma">'+game.title+'</p>';
     div.append(tile);
