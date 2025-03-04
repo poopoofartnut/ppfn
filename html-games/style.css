@@ -8,6 +8,22 @@
 div{
     border-style: none;
 }
+#ad{
+    align-self: center;
+    background-color: var(--tile);
+    aspect-ratio: 5/1;
+    width: 500px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: -10px;
+}
+#adtag{
+    background-color: black;
+    width:20px;
+    height:20px;
+    border-bottom-right-radius: 7px;
+}
 body{
     background-color: var(--back);
     color: var(--font);
@@ -24,6 +40,8 @@ body{
         linear-gradient(to bottom, rgb(43, 43, 43) 1px, transparent 1px);
     background-attachment: fixed;
     margin: 0;
+    margin: none;
+    padding: 0;
 }
 #switchdiv{
     position: fixed;
