@@ -36,6 +36,9 @@ body{
     height: 70px;
     text-align: center;
     border-top-left-radius: 50px;
+    -webkit-box-shadow: -10px -10px 20px -12px rgba(0,0,0,0.75);
+-moz-box-shadow: -10px -10px 20px -12px rgba(0,0,0,0.75);
+box-shadow: -10px -10px 20px -12px rgba(0,0,0,0.75);
 }
 .switch {
     position: relative;
