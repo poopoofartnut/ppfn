@@ -4,7 +4,7 @@
     --tile: rgb(200, 200, 200);
     --res: white;
     --themeicon: white;
-    --grid: rgb(174, 174, 174);
+    --grid: rgb(189, 189, 189);
 }
 div{
     border-style: none;
@@ -55,9 +55,6 @@ body{
     height: 110px;
     text-align: center;
     border-top-left-radius: 50px;
-    -webkit-box-shadow: -10px -10px 20px -12px rgba(0,0,0,0.75);
--moz-box-shadow: -10px -10px 20px -12px rgba(0,0,0,0.75);
-box-shadow: -10px -10px 20px -12px rgba(0,0,0,0.75);
 }
 .switch {
     position: relative;
