@@ -921,6 +921,7 @@ if (!localStorage.getItem('theme')) {
        document.getElementById("res").innerHTML= "<span id='g' class='material-symbols-outlined'>dark_mode</span>";
        root.style.setProperty("--res", "rgb(56, 56, 56)");
        root.style.setProperty("--themeicon", "white");
+       root.style.setProperty("--grid", "rgb(174, 174, 174)");
    }else if (sigma == "dark"){
        root.style.setProperty("--back", "rgb(26, 26, 26)");
        root.style.setProperty("--font", "white");
@@ -928,6 +929,7 @@ if (!localStorage.getItem('theme')) {
        document.getElementById("res").innerHTML= "<span id='g' class='material-symbols-outlined'>light_mode</span>";
        root.style.setProperty("--res", "rgb(230, 230, 230)");
        root.style.setProperty("--themeicon", "black");
+       root.style.setProperty("--grid", "rgb(43, 43, 43)");
    }else{
        console.log("Invalid theme var input")
    }
@@ -973,6 +975,7 @@ dataArr.forEach(function(game) {
     --tile: rgb(200, 200, 200);
     --res: white;
     --themeicon: white;
+    --grid: rgb(174, 174, 174);
 }
 div{
     border-style: none;
@@ -1032,8 +1035,8 @@ body{
     overflow-x: hidden;
     background-size: 40px 40px;
     background-image:
-        linear-gradient(to right, rgb(43, 43, 43) 1px, transparent 1px),
-        linear-gradient(to bottom, rgb(43, 43, 43) 1px, transparent 1px);
+        linear-gradient(to right, var(--grid) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
     background-attachment: fixed;
     margin: 0;
 }
