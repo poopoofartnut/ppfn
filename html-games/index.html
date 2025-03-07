@@ -905,23 +905,46 @@ $("#search").on('keypress keyup change input', function() {
     });
     
 });
-function cloak(game){
-  var win = window.open()
-            var url = game
-            var iframe = win.document.createElement('iframe')
-            iframe.style.width = "100%";
-            iframe.style.height = "100%";
-            iframe.style.border = "none";
-            iframe.src = url
-            win.document.body.style.padding="0";
-            win.document.body.style.margin="0";
-            win.document.body.appendChild(iframe)
+function cloak(game) {
+  var win = window.open();
+  var url = game;
+  var iframe = win.document.createElement('iframe');
+  iframe.style.width = "100%";
+  iframe.style.height = "100%";
+  iframe.style.border = "none";
+  iframe.src = url;
+  win.document.body.style.padding = "0";
+  win.document.body.style.margin = "0";
+  win.document.body.appendChild(iframe);
+
+  // Check if the window is closed within 2 seconds
+  setTimeout(function() {
+    if (win.closed) {
+      showPopup("The about:blank page was closed too quickly. Your school might be blocking this feature. Toggle the About:blank cloak in the bottom right to resolve this issue.");
+    }
+  }, 2000);
 }
+
+function showPopup(message) {
+  new Popup({
+    id: "about-blank-warning",
+    title: "Warning",
+    content: message,
+    buttonText: "OK"
+  }).show();
+}
+
 var div = document.getElementById("tilecontainer");
 div.innerHTML = ""; 
 dataArr.forEach(function(game) {
     var tile = document.createElement('div');
-    tile.addEventListener('click', function() {if(document.getElementById('ab').checked == false){location.href = game.link}else{cloak(game.link)}}, false);
+    tile.addEventListener('click', function() {
+      if(document.getElementById('ab').checked == false) {
+        location.href = game.link;
+      } else {
+        cloak(game.link);
+      }
+    }, false);
     tile.classList.add("tile");
     tile.innerHTML = '<img src="'+game.imgSrc+'" alt="placeholder"><p class="sigma">'+game.title+'</p>';
     div.append(tile);
