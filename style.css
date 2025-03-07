@@ -4,7 +4,7 @@
     --tile: rgb(0, 0, 0);
     --res: rgb(0, 0, 0);
     --themeicon: rgb(0, 0, 0);
-    --grid: rgb(189, 189, 189);
+    --grid: rgb(0, 0, 0);
 }
 div{
     border-style: none;
