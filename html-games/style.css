@@ -9,6 +9,31 @@
 div{
     border-style: none;
 }
+#feedback-button {
+    position: fixed;
+    right: -55px;
+    top: 40%;
+    transform: rotate(-90deg);
+    z-index: 999;
+  }
+  
+  #feedback-button a {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.3s ease;
+    height: 50px;
+  }
+  
+  #feedback-button a:hover {
+    background-color: #0056b3;
+    transform: translate(0px,-5px);
+  }
 #ad{
     align-self: center;
     background-color: var(--tile);

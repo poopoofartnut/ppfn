@@ -55,6 +55,9 @@
     <p>
 
     </p>
+    <div id="feedback-button">
+      <a href="/form/index.html" target="_blank">Feedback</a>
+    </div>
 </body>
 </html>
 <script>
@@ -920,7 +923,7 @@ function cloak(game) {
   // Check if the window is closed within 2 seconds
   setTimeout(function() {
     if (win.closed) {
-      showPopup("The about:blank page was closed too quickly. Your school might be blocking this feature. Toggle the About:blank cloak in the bottom right to resolve this issue.");
+      showPopup("The about:blank page was closed too quickly. Your school might be blocking this feature. Toggle the About:blank cloak in the bottom right to resolve this issue.\nNote: Securly blocks about blank tabs when a classroom session is active but it wont block them outside of a session or close open tabs when a session is started.");
     }
   }, 500);
 }
@@ -949,6 +952,7 @@ dataArr.forEach(function(game) {
     tile.innerHTML = '<img src="'+game.imgSrc+'" alt="placeholder"><p class="sigma">'+game.title+'</p>';
     div.append(tile);
 });
+
 
 </script>
 <button id="back" onclick="window.open('/ppfn','_self')"><span class="material-symbols-outlined">
