@@ -6664,8 +6664,10 @@ var JotForm = {
                 switch (fieldType) {
                     case "combined":
                         if (['isEmpty', 'isFilled'].include(term.operator)) {
-                            filled = $$('#id_' + term.field + ' input,' + '#id_' + term.field + ' select').collect(function (e) {
-                                return e.getAttribute('type') === 'checkbox' || e.getAttribute('type') === 'radio' ? (e.checked ? e.value : '') : e.value;
+                            filled = $$('#id_' + term.field + ' input,' + '#id_' + term.field + ' select')
+                                .filter(e => e.getAttribute('type') !== 'hidden')
+                                .collect(function (e) {
+                                    return e.getAttribute('type') === 'checkbox' || e.getAttribute('type') === 'radio' ? (e.checked ? e.value : '') : e.value;
                             }).any();
 
                             if (JotForm.checkValueByOperator(term.operator, term.value, filled)) {
@@ -12105,13 +12107,19 @@ var JotForm = {
                     let amountsHTML = '';
 
                     // first payment amount
-                    amountsHTML +=  getHTML('Today’s Total:', firstPaymentVal, 'first-payment', true);
+                    let fpAmountVal = firstPaymentVal === 0 && pair.value.trial_unit === 0 ? recurringVal : firstPaymentVal;
+                    const gatewaysWithFreeTrial = ['square', 'cybersource'];
+                    if (gatewaysWithFreeTrial.includes(JotForm.payment)) {
+                        fpAmountVal = pair.value.trial_unit === 0 ? fpAmountVal : 0;
+                    }
+                    amountsHTML +=  getHTML('TODAY’S TOTAL:', fpAmountVal, 'first-payment', true);
                     // recurring payment amount
                     const subsPeriodConfig = paymentUtils.getSubscriptionPeriodConfig(pair.value.recurrence_interval, String(pair.value.recurrence_unit));
                     amountsHTML +=  getHTML(`${subsPeriodConfig ? subsPeriodConfig.keys[0] : ''}&nbsp;Recurring Total:`, recurringVal, 'recur-payment', true);
 
                     // custom number of recurring payments
-                    const product = document.querySelector(`.form-product-item[pid="${pair.key.split('_').pop()}"]`);
+                    const productSelector = window.FORM_MODE === 'cardform' ? `.product.product--subscription[data-pid="${pair.key.split('_').pop()}"]` : `.form-product-item[pid="${pair.key.split('_').pop()}"]`;
+                    const product = document.querySelector(productSelector);
                     const customRecurDropdown = product && product.querySelector('.custom-recurring-payments');
                     if (customRecurDropdown) {
                         const customRecurVal = customRecurDropdown.value === 'unlimited' ? 'Unlimited' : `x${customRecurDropdown.value}`;
@@ -12120,6 +12128,10 @@ var JotForm = {
                     amountsContainer.insert(amountsHTML);
                     recurPaymentContainer.insertAdjacentElement('beforebegin', JotForm.discounts.container);
                     recurPaymentContainer.insert(amountsContainer);
+
+                    if (window.FORM_MODE === 'cardform') {
+                        recurPaymentContainer.style.display = 'block';
+                    }
                 }
             }
 
@@ -20833,7 +20845,8 @@ var JotForm = {
     setupFormSettledEvent: () => {
       const isPrefill = !!JotForm.getPrefillToken();
       const isSACL = !!(window.JFForm && window.JFForm.draftID);
-      let count = 0 + Number(isSACL) + Number(isPrefill);
+      const hasAppointment = !!document.querySelector('[data-type=control_appointment]');
+      let count = 0 + Number(isSACL) + Number(isPrefill) + Number(hasAppointment);
 
       const checkIsFormSetteled = () => {
         if (count !== 0) {
@@ -20844,6 +20857,7 @@ var JotForm = {
         window.parent.postMessage('formSettled', '*');
         document.removeEventListener('PrefillCompleted', checkIsFormSetteled);
         document.removeEventListener('SACLCompleted', checkIsFormSetteled);
+        document.removeEventListener('AppointmentSettled', checkIsFormSetteled);
       }
 
       if (isPrefill) {
@@ -20851,6 +20865,9 @@ var JotForm = {
       }
       if (isSACL) {
         document.addEventListener('SACLCompleted', checkIsFormSetteled);
+      }
+      if (hasAppointment) {
+        document.addEventListener('AppointmentSettled', checkIsFormSetteled);
       }
       checkIsFormSetteled();
     },

@@ -105,23 +105,18 @@ if (!localStorage.getItem('theme')) {
 var dataArr = {};
 window.dataArr = gamelist.sort((a, b) => a.title.localeCompare(b.title));
 
-$("#search").on('keypress keyup change input', function() { 
-    var div = document.getElementById("tilecontainer");
-    var arrival = $(this).val().toLowerCase();
-    div.innerHTML = "";
-    dataArr.filter(function(game) {
-        return (game.title.toLowerCase().indexOf(arrival) !== -1);
-    }).map(function(game) {
 
-        var tile = document.createElement('div');
-        tile.addEventListener('click', function() {location.href = game.link}, false);
-        tile.classList.add("tile");
-        tile.innerHTML = '<img src="'+game.imgSrc+'" alt="placeholder"><p class="sigma">'+game.title+'</p>';
-        div.append(tile);
-         
-    });
-    
-});
+function showPopup() {
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerHTML = '<p>Submission completed</p><span class="checkmark">✓</span>';
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+        document.body.removeChild(popup);
+    }, 2000); // Remove the popup after 2 seconds
+}
+
 var div = document.getElementById("tilecontainer");
 div.innerHTML = ""; 
 dataArr.forEach(function(game) {
