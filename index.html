@@ -42,7 +42,30 @@
     <div id="tilecontainer">
     </div>
     <button id="res" onclick="change()"></button>
-    
+    <div id="pullup">
+      <button id="open" onclick="openpop()">Changelog & ToDo list</button>
+      <div id="changelog">
+        <div style="margin: 0;padding: 0;position: relative;top: 0;">
+          <button class="tabs active" onclick="opentab('changelog1')">Changelog</button>
+          <button class="tabs"onclick="opentab('todo')">ToDo</button>
+        </div>
+
+        <div id="changelog1" class="tab" >
+          <h2>Changelog</h2>
+          <ul>
+            <li>(4-11-25) Added Changelog & ToDo list</li>
+          </ul> 
+        </div>
+
+        <div id="todo" class="tab" style="display:none">
+          <h2>ToDo</h2>
+          <ul>
+            <li>Add UTanks (takionline)</li>
+            <li>Add Rammerhead</li>
+          </ul>
+        </div>
+    </div>
+  </div>
 </body>
 <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="mirokokki" data-description="Support me on Buy me a coffee!" data-message="give me money" data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 </html>
@@ -126,5 +149,32 @@ dataArr.forEach(function(game) {
     tile.innerHTML = '<img src="'+game.imgSrc+'" alt="placeholder"><p class="sigma">'+game.title+'</p>';
     div.append(tile);
 });
-
+function opentab(tabName) {
+  var i;
+  var x = document.getElementsByClassName("tab");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(tabName).style.display = "block";
+  
+  // Update active tab styling
+  var tabs = document.getElementsByClassName("tabs");
+  for (i = 0; i < tabs.length; i++) {
+    tabs[i].classList.remove("active");
+  }
+  
+  // Add active class to the clicked tab
+  document.querySelector('[onclick="opentab(\'' + tabName + '\')"]').classList.add("active");
+}
+var e;
+function openpop(){
+  if (e==true){
+    document.getElementById("pullup").style="transform:translate(0, 0);";
+    e=false;
+  }else{
+    document.getElementById("pullup").style="transform:translate(0, -200px);";
+    e=true;
+  }
+  
+}
 </script>

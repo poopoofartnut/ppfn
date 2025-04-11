@@ -9,6 +9,75 @@
 div{
     border-style: none;
 }
+#changelog{
+    
+}
+#pullup{
+    position: fixed;
+    bottom:-200px;
+    width: 300px;
+    height: 200px;
+    background-color: var(--tile);
+    z-index: 1001;
+    transition: transform 0.3s ease-in-out;
+    padding: 0;
+
+}
+#changelog1{
+    padding-right: 10px;
+    padding-left: 10px;
+    overflow-x: auto;
+    overflow-y: scroll;
+    height: 165px;
+    position: relative;
+    top: -22px;
+    
+}
+#todo{
+    padding-right: 10px;
+    padding-left: 10px;
+    overflow-x: auto;
+    overflow-y: scroll;
+    height: 165px;
+    position: relative;
+    top: -22px;
+}
+.tabs{
+    width: 50.8%;
+    height: 30px;
+    margin: -3px;
+    position: relative;
+    top: -29px;
+    background-color: rgb(56, 56, 56);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.tabs.active {
+    background-color: rgb(100, 100, 100);
+    font-weight: bold;
+}
+
+.tabs:hover {
+    background-color: rgb(80, 80, 80);
+}
+#open{
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--res);
+    border: none;
+    background-color: gray;
+    width: 300px;
+    height: 40px;
+    position: relative;
+    top: -30px;
+    margin-top: -40px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
 #feedback-button {
     position: fixed;
     right: -55px;
@@ -16,7 +85,7 @@ div{
     transform: rotate(-90deg);
     z-index: 999;
   }
-  
+
   #feedback-button a {
     display: inline-block;
     background-color: #007bff;
